@@ -1,0 +1,250 @@
+:root {
+  --bg: #f5f1e8;
+  --bg-alt: #efe7d8;
+  --card: #fffcf5cc;
+  --text: #1f1a14;
+  --muted: #665a4a;
+  --line: #d8ccb8;
+  --accent: #c96b2c;
+  --accent-soft: #f3b57e;
+  --shadow: 0 16px 45px rgba(42, 24, 10, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% -5%, #ffd7ae 0%, transparent 34%),
+    radial-gradient(circle at 90% 8%, #f6cfc1 0%, transparent 31%),
+    linear-gradient(160deg, var(--bg), var(--bg-alt));
+  line-height: 1.6;
+}
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: linear-gradient(120deg, transparent 0 46%, rgba(201, 107, 44, 0.1) 46% 48%, transparent 48% 100%);
+  background-size: 28px 28px;
+  opacity: 0.5;
+}
+
+.page {
+  width: min(1020px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
+}
+
+.hero {
+  padding: 1.4rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0.3rem 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+}
+
+h2 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0.4rem 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.title-line {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.title-line span {
+  color: var(--accent-soft);
+  margin: 0 0.3rem;
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  color: var(--muted);
+}
+
+.contact-list li {
+  position: relative;
+  padding-right: 0.9rem;
+}
+
+.contact-list li::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-soft);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.contact-list li:last-child {
+  padding-right: 0;
+}
+
+.contact-list li:last-child::after {
+  display: none;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.skill-grid article {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: #fff8ec;
+}
+
+.role + .role {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line);
+}
+
+.role-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.location {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.project {
+  margin-top: 0.8rem;
+}
+
+.period {
+  margin: 0.2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+ul {
+  margin: 0.4rem 0 0.1rem 1rem;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+.edu-item + .edu-item {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--line);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(1020px, calc(100% - 1rem));
+    margin-top: 1rem;
+  }
+
+  .card {
+    border-radius: 14px;
+    padding: 1rem;
+  }
+
+  .contact-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .contact-list li {
+    padding-right: 0;
+  }
+
+  .contact-list li::after {
+    display: none;
+  }
+}
